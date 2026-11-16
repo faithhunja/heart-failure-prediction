@@ -4,6 +4,22 @@ This is a machine learning project that explores a heart disease dataset, trains
 logistic regression classifier, and serves heart failure predictions through a FastAPI
 endpoint.
 
+## Live demo
+
+The API is deployed on Render:
+
+- **Live API:** [Open the deployed service](https://heart-failure-prediction-9p5a.onrender.com)
+- **Interactive API docs:** [Try a prediction in Swagger UI](https://heart-failure-prediction-9p5a.onrender.com/docs)
+
+The service root returns API information; use `/docs` to submit a prediction.
+
+### Prediction
+
+![Prediction request in Swagger UI](images/prediction-request.png)*Example patient details entered in the deployed API.*
+
+
+![Prediction response from the deployed API](images/prediction-response.png)*The API's heart disease probability and classification.*
+
 ## Project contents
 
 - `notebook.ipynb` — exploratory data analysis, feature preparation, model
@@ -52,7 +68,7 @@ This reads `data/heart.csv` and writes the trained pipeline to `model.bin` in
 the repository root. Run training again whenever the dataset or model
 configuration changes.
 
-## Run the prediction API
+## Run the prediction API locally
 
 Make sure `model.bin` exists, then start the development server:
 
@@ -89,7 +105,7 @@ The response contains a `heart_disease_probability` between 0 and 1 and a
 Input categories and numeric constraints are documented in the interactive
 API docs.
 
-## Test against the running API
+## Test against the local API
 
 With the API running in one terminal, run this from the repository root in a
 second terminal:
@@ -100,7 +116,9 @@ uv run python test.py
 
 The script sends an example patient request and prints the probability and
 classification. It raises an error if the API returns an unsuccessful HTTP
-status.
+status. `test.py` targets `http://localhost:9696`; to test the Render deployment
+instead, use the interactive docs above or change the URL in `test.py` to your
+Render service's `/predict` endpoint.
 
 ## Run with Docker
 
