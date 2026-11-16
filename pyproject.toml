@@ -1,0 +1,19 @@
+[project]
+name = "heart-failure-prediction"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.6.6",
+    "matplotlib>=3.11.2",
+    "notebook>=7.6.5",
+    "numpy>=2.5.5",
+    "pandas>=3.1.1",
+    "pydantic>=2.14.3",
+    "requests>=2.32",
+    "scikit-learn>=1.9.1",
+    "uvicorn>=0.34",
+]
